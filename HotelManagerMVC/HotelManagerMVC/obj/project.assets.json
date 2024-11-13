@@ -65,24 +65,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManagerMVC\\HotelManagerMVC.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManagerMVC\\HotelManagerMVC.csproj",
       "projectName": "HotelManagerMVC",
-      "projectPath": "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManagerMVC\\HotelManagerMVC.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManagerMVC\\obj\\",
+      "projectPath": "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManagerMVC\\HotelManagerMVC.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManagerMVC\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -96,14 +91,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManager.Data\\HotelManager.Data.csproj": {
-              "projectPath": "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManager.Data\\HotelManager.Data.csproj"
+            "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManager.Data\\HotelManager.Data.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManager.Data\\HotelManager.Data.csproj"
             },
-            "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManager.Service\\HotelManager.Service.csproj": {
-              "projectPath": "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManager.Service\\HotelManager.Service.csproj"
+            "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManager.Service\\HotelManager.Service.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManager.Service\\HotelManager.Service.csproj"
             },
-            "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManager.Shared\\HotelManager.Shared.csproj": {
-              "projectPath": "D:\\MY PROJECTS\\HotelManagement\\HotelManager\\HotelManagerMVC\\HotelManager.Shared\\HotelManager.Shared.csproj"
+            "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManager.Shared\\HotelManager.Shared.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\School\\HotelManagerMVC\\HotelManager\\HotelManagerMVC\\HotelManager.Shared\\HotelManager.Shared.csproj"
             }
           }
         }
@@ -141,7 +136,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
