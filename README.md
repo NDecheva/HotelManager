@@ -1,1 +1,1 @@
-# HotelManager
+# HotelManagerMVC
