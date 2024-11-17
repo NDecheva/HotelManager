@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagerMVC", "HotelManagerMVC\HotelManagerMVC.csproj", "{B2949DA0-B98E-492C-9C19-B799DD3FD4AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManagerMVC", "HotelManagerMVC\HotelManagerMVC.csproj", "{B2949DA0-B98E-492C-9C19-B799DD3FD4AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManager.Shared", "HotelManager.Shared\HotelManager.Shared.csproj", "{729822A0-67A3-4913-9374-A4160E39961D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManager.Shared", "HotelManager.Shared\HotelManager.Shared.csproj", "{729822A0-67A3-4913-9374-A4160E39961D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManager.Data", "HotelManager.Data\HotelManager.Data.csproj", "{B34D24BF-7473-46AD-BF61-C51510B1C543}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManager.Data", "HotelManager.Data\HotelManager.Data.csproj", "{B34D24BF-7473-46AD-BF61-C51510B1C543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManager.Service", "HotelManager.Service\HotelManager.Service.csproj", "{FD0A6867-89CA-4DC9-9F68-69DE610A6BFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManager.Services", "HotelManager.Service\HotelManager.Services.csproj", "{FD0A6867-89CA-4DC9-9F68-69DE610A6BFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

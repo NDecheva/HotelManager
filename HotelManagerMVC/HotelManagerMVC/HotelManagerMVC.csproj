@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HotelManager.Data\HotelManager.Data.csproj" />
-    <ProjectReference Include="..\HotelManager.Service\HotelManager.Service.csproj" />
+    <ProjectReference Include="..\HotelManager.Service\HotelManager.Services.csproj" />
     <ProjectReference Include="..\HotelManager.Shared\HotelManager.Shared.csproj" />
   </ItemGroup>
 
