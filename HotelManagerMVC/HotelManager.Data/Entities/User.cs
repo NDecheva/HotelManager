@@ -17,7 +17,7 @@ namespace HotelManager.Data.Entities
         public string LastName { get; set; }
         public int UCN { get; set; }
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        public int PhoneNumber { get; set; }
         public DateTime HireDate { get; set; }
         public DateTime? TerminationDate { get; set; }
         public bool IsActive { get; set; }

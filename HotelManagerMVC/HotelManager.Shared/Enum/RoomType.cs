@@ -8,7 +8,6 @@ namespace HotelManager.Shared.Enum
 {
     public enum  RoomType
     {
-        Single,
         Double,
         Suite,
         Apartment,
