@@ -8,10 +8,7 @@ namespace HotelManager.Data.Entities
 {
     public class User : BaseEntity
     {
-        public User()
-        {
-            this.UserReservations = new List<UserReservation>();
-        }
+
 
         public string Username { get; set; }
         public string Password { get; set; }
@@ -24,6 +21,6 @@ namespace HotelManager.Data.Entities
         public DateTime HireDate { get; set; }
         public DateTime? TerminationDate { get; set; } 
         public bool IsActive { get; set; }
-        public virtual ICollection<UserReservation> UserReservations { get; set; } 
+
     }
 }
