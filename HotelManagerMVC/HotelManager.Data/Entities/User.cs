@@ -15,12 +15,11 @@ namespace HotelManager.Data.Entities
         public string FirstName { get; set; }
         public string MiddleName { get; set; } 
         public string LastName { get; set; }
-        public int UCN { get; set; } 
+        public string UCN { get; set; } 
         public string Email { get; set; }
-        public int PhoneNumber { get; set; } 
+        public string PhoneNumber { get; set; } 
         public DateTime HireDate { get; set; }
         public DateTime? TerminationDate { get; set; } 
         public bool IsActive { get; set; }
-
     }
 }

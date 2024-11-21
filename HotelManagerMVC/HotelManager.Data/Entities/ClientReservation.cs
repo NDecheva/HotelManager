@@ -11,6 +11,8 @@ namespace HotelManager.Data.Entities
         public int ClientId { get; set; }
         public virtual Client Client { get; set; }
         public int ReservationId { get; set; }
+        public bool IsAdult { get; set; }
+
         public virtual Reservation Reservation { get; set; }
     }
 }

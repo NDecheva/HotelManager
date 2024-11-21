@@ -20,6 +20,8 @@ namespace HotelManager.Data.Entities
         public decimal PricePerNightAdult { get; set; } 
         public decimal PricePerNightChild { get; set; } 
         public RoomType RoomType { get; set; } 
-        public virtual ICollection<Reservation> Reservations { get; set; } 
+        public virtual ICollection<Reservation> Reservations { get; set; }
+        public decimal BreakfastPrice { get; set; } 
+        public decimal AllInclusivePrice { get; set; }
     }
 }
