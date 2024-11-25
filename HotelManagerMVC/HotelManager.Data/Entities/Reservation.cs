@@ -10,7 +10,7 @@ namespace HotelManager.Data.Entities
     {
         public Reservation()
         {
-            this.Clients = new List<ClientReservation>();
+            this.ClientReservations = new List<ClientReservation>();
         }
 
         public int RoomId { get; set; }
@@ -25,8 +25,7 @@ namespace HotelManager.Data.Entities
         public bool HasBreakfast { get; set; } 
         public bool IsAllInclusive { get; set; } 
 
-        public virtual ICollection<ClientReservation> Clients { get; set; }
-
+        public virtual ICollection<ClientReservation> ClientReservations { get; set; }
 
         public decimal CalculateTotalPrice()
         {
@@ -37,7 +36,7 @@ namespace HotelManager.Data.Entities
 
             decimal totalPrice = 0;
 
-            totalPrice += Clients.Sum(c => c.IsAdult ? Room.PricePerNightAdult : Room.PricePerNightChild);
+            totalPrice += ClientReservations.Sum(cr => cr.Client.IsAdult ? Room.PricePerNightAdult : Room.PricePerNightChild);
 
             if (HasBreakfast)
             {
