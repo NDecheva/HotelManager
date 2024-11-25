@@ -60,12 +60,6 @@ namespace ProjectManagement.Data
                 .OnDelete(DeleteBehavior.Restrict); // Change Cascade to Restrict
 
 
-            modelBuilder.Entity<Room>()
-                .HasMany(room => room.Reservations)
-                .WithOne(res => res.Room)
-                .HasForeignKey(res => res.RoomId)
-                .OnDelete(DeleteBehavior.Restrict);
-
 
 
             modelBuilder.Entity<User>().HasData(new User
