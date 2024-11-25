@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjectManagement.Data
+namespace HotelManager.Data
 {
     public class HotelManagementDbContext : DbContext
     {
@@ -68,8 +68,11 @@ namespace ProjectManagement.Data
                 Username = "admin",
                 Password = PasswordHasher.HashPassword("str"),
                 FirstName = "Admin",
+                MiddleName = "Guest",
                 LastName = "User",
                 Email = "admin@example.com",
+                PhoneNumber = "0111111111",
+                UCN = "0876509422",
             });
         }
 
