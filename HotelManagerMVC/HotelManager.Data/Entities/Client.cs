@@ -10,15 +10,15 @@ namespace HotelManager.Data.Entities
     {
         public Client()
         {
-            this.ClientReservation = new List<ClientReservation>();
+            this.ClientReservation = new List<ClientReservations>();
         }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int PhoneNumber { get; set; } 
+        public string PhoneNumber { get; set; } 
         public string Email { get; set; }
-        public bool IsAdult { get; set; } 
-        public virtual ICollection<ClientReservation> ClientReservation { get; set; }
+        public bool IsAdult { get; set; }
+        public virtual ICollection<ClientReservations> ClientReservation { get; set; }
     }
 }
 
