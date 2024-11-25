@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelManager.Shared.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,5 +22,6 @@ namespace HotelManager.Data.Entities
         public DateTime HireDate { get; set; }
         public DateTime? TerminationDate { get; set; } 
         public bool IsActive { get; set; }
+        public Role Role { get; set; }
     }
 }

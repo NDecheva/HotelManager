@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelManager.Data.Entities
 {
-    public class ClientReservations : BaseEntity
+    public class ClientReservation : BaseEntity
     {
         public int ClientId { get; set; }
         public virtual Client Client { get; set; }
