@@ -73,6 +73,7 @@ namespace HotelManager.Data
                 Email = "admin@example.com",
                 PhoneNumber = "0111111111",
                 UCN = "0876509422",
+                IsActive = true,
             });
         }
 

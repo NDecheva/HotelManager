@@ -131,7 +131,7 @@ namespace HotelManager.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Email", "FirstName", "HireDate", "IsActive", "LastName", "MiddleName", "Password", "PhoneNumber", "Role", "TerminationDate", "UCN", "Username" },
-                values: new object[] { 1, "admin@example.com", "Admin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "User", "Guest", "XwERx3XH3S7wzjL5oY5TSDzbiTdNbhxG75k3ZC1++27mdglX1+nm/5Px62EoLSJR", "0111111111", 0, null, "0876509422", "admin" });
+                values: new object[] { 1, "admin@example.com", "Admin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "User", "Guest", "0uvm9wBpudT66eNnjW5JeT7Cu2nvMvtpw2jXo9WQkWmdySKSpShy/CQNy6XXtuYG", "0111111111", 0, null, "0876509422", "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ClientReservations_ClientId",

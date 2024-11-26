@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelManager.Data.Migrations
 {
     [DbContext(typeof(HotelManagementDbContext))]
-    [Migration("20241125194547_Initial")]
+    [Migration("20241126073223_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -218,10 +218,10 @@ namespace HotelManager.Data.Migrations
                             Email = "admin@example.com",
                             FirstName = "Admin",
                             HireDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsActive = false,
+                            IsActive = true,
                             LastName = "User",
                             MiddleName = "Guest",
-                            Password = "XwERx3XH3S7wzjL5oY5TSDzbiTdNbhxG75k3ZC1++27mdglX1+nm/5Px62EoLSJR",
+                            Password = "0uvm9wBpudT66eNnjW5JeT7Cu2nvMvtpw2jXo9WQkWmdySKSpShy/CQNy6XXtuYG",
                             PhoneNumber = "0111111111",
                             Role = 0,
                             UCN = "0876509422",
