@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ProjectManagement.Data
 {
-    public class HotelManagementDbContext : DbContext
+    public class HotelManagerDbContext : DbContext
     {
         public DbSet<Client> Clients { get; set; }
         public DbSet<ClientReservation> ClientReservations { get; set; }
@@ -16,9 +16,9 @@ namespace ProjectManagement.Data
         public DbSet<Room> Rooms { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public HotelManagementDbContext() { }
+        public HotelManagerDbContext() { }
 
-        public HotelManagementDbContext(DbContextOptions<HotelManagementDbContext> options) : base(options) { }
+        public HotelManagerDbContext(DbContextOptions<HotelManagerDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -70,7 +70,12 @@ namespace ProjectManagement.Data
                 FirstName = "Admin",
                 LastName = "User",
                 Email = "admin@example.com",
+                MiddleName = "base",
+                UCN = "0987654321",
+                PhoneNumber = "1234567890",
+                IsActive = true,
             });
+
         }
 
     }
