@@ -27,7 +27,9 @@ namespace HotelManager.Shared.Dtos
 
         public bool IsAllInclusive { get; set; }
 
-        public ICollection<ClientReservationDto> ClientReservations { get; set; }
+        public decimal TotalPrice { get; private set; }
+
+        public virtual ICollection<ClientReservationDto> ClientReservations { get; set; }
 
         public decimal CalculateTotalPrice()
         {
@@ -52,6 +54,10 @@ namespace HotelManager.Shared.Dtos
             }
 
             return totalPrice;
+        }
+        public void UpdateTotalPrice()
+        {
+            TotalPrice = CalculateTotalPrice();
         }
     }
 }
