@@ -28,5 +28,30 @@ namespace HotelManager.Shared.Dtos
         public bool IsAllInclusive { get; set; }
 
         public ICollection<ClientReservationDto> ClientReservations { get; set; }
+
+        public decimal CalculateTotalPrice()
+        {
+            if (Room == null)
+            {
+                return 0;
+            }
+
+            decimal totalPrice = 0;
+
+            totalPrice += ClientReservations.Sum(cr => cr.Client.IsAdult ? Room.PricePerNightAdult : Room.PricePerNightChild);
+
+            if (HasBreakfast)
+            {
+                totalPrice += Room.BreakfastPrice;
+            }
+
+
+            if (IsAllInclusive)
+            {
+                totalPrice += Room.AllInclusivePrice;
+            }
+
+            return totalPrice;
+        }
     }
 }
