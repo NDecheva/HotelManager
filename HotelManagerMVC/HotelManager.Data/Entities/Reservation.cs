@@ -25,14 +25,8 @@ namespace HotelManager.Data.Entities
         public bool HasBreakfast { get; set; } 
         public bool IsAllInclusive { get; set; }
 
-        public decimal TotalPrice
-        {
-            get
-            {
-                return CalculateTotalPrice();
-            }
-            
-        }
+        public decimal TotalPrice => CalculateTotalPrice();
+        
 
         public virtual ICollection<ClientReservation> ClientReservations { get; set; }
 
