@@ -1,7 +1,7 @@
 using EntityFrameworkCore.UseRowNumberForPaging;
 using Microsoft.EntityFrameworkCore;
 using HotelManager.Data;
-using ProjectManagement.Data;
+using HotelManager.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

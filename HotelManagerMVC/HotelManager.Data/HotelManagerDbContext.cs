@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjectManagement.Data
+namespace HotelManager.Data
 {
     public class HotelManagerDbContext : DbContext
     {
