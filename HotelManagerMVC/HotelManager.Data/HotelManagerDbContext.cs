@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjectManagement.Data
+namespace HotelManager.Data
 {
     public class HotelManagerDbContext : DbContext
     {
         public DbSet<Client> Clients { get; set; }
-        public DbSet<ClientReservation> ClientReservations { get; set; }
+        public DbSet<Entities.ClientReservation> ClientReservations { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<User> Users { get; set; }
@@ -29,18 +29,18 @@ namespace ProjectManagement.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<ClientReservation>()
+            modelBuilder.Entity<Entities.ClientReservation>()
                 .HasKey(cr => cr.Id);
 
 
-            modelBuilder.Entity<ClientReservation>()
+            modelBuilder.Entity<Entities.ClientReservation>()
                 .HasOne(cr => cr.Client)
                 .WithMany(c => c.ClientReservations)
                 .HasForeignKey(cr => cr.ClientId)
                 .OnDelete(DeleteBehavior.Cascade); // Change Cascade to Restrict
 
 
-            modelBuilder.Entity<ClientReservation>()
+            modelBuilder.Entity<Entities.ClientReservation>()
                 .HasOne(cr => cr.Reservation)
                 .WithMany(r => r.ClientReservations)
                 .HasForeignKey(cr => cr.ReservationId)
