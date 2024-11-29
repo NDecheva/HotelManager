@@ -29,18 +29,18 @@ namespace HotelManager.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Entities.ClientReservation>()
+            modelBuilder.Entity<ClientReservation>()
                 .HasKey(cr => cr.Id);
 
 
-            modelBuilder.Entity<Entities.ClientReservation>()
+            modelBuilder.Entity<ClientReservation>()
                 .HasOne(cr => cr.Client)
                 .WithMany(c => c.ClientReservations)
                 .HasForeignKey(cr => cr.ClientId)
                 .OnDelete(DeleteBehavior.Cascade); // Change Cascade to Restrict
 
 
-            modelBuilder.Entity<Entities.ClientReservation>()
+            modelBuilder.Entity<ClientReservation>()
                 .HasOne(cr => cr.Reservation)
                 .WithMany(r => r.ClientReservations)
                 .HasForeignKey(cr => cr.ReservationId)
