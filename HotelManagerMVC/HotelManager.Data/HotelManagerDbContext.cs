@@ -11,7 +11,7 @@ namespace HotelManager.Data
     public class HotelManagerDbContext : DbContext
     {
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Entities.ClientReservation> ClientReservations { get; set; }
+        public DbSet<ClientReservation> ClientReservations { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<User> Users { get; set; }
