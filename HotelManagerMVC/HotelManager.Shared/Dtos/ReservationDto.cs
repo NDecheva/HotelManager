@@ -30,7 +30,5 @@ namespace HotelManager.Shared.Dtos
         public decimal TotalPrice { get; set; }
 
         public virtual ICollection<ClientReservationDto> ClientReservations { get; set; }
-
-
     }
 }
