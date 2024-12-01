@@ -10,8 +10,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using HotelManager.Shared.Repos.Contracts;
 
-public abstract class BaseRepository<T, TModel> : IBaseRepository<TModel>,IDisposable
-	where T : class, IBaseEntity
+public abstract class BaseRepository<T, TModel>
+    : IBaseRepository<TModel>, IDisposable
+    where T : class, IBaseEntity
 	where TModel : BaseModel
 {
 	protected readonly DbContext _context;
