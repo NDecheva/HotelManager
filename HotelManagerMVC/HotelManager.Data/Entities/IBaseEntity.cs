@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelManager.Data.Entities
 {
-    public abstract class BaseEntity : IBaseEntity
+    public interface IBaseEntity
     {
         public int Id { get; set; }
     }
