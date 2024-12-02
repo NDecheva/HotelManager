@@ -25,6 +25,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HotelManager.Data\HotelManager.Data.csproj" />
+    <ProjectReference Include="..\HotelManager.Services\HotelManager.Services.csproj" />
+    <ProjectReference Include="..\HotelManager.Shared\HotelManager.Shared.csproj" />
+    <ProjectReference Include="..\HotelManagerMVC\HotelManagerMVC.csproj" />
   </ItemGroup>
 
   <ItemGroup>
