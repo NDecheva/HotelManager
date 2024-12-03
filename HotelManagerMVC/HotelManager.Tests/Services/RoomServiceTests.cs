@@ -71,6 +71,35 @@ namespace HotelManager.Tests.Services
             _roomRepositoryMock.Verify(x => x.DeleteAsync(It.Is<int>(i => i.Equals(id))), Times.Once);
         }
 
+        [Theory]
+        [TestCase(1)]
+        [TestCase(22)]
+        [TestCase(131)]
+        public async Task WhenGetByIdAsync_WithValidBreedId_ThenReturnUser(int roomid)
+        {
+            //Arrange
+            var roomDto = new RoomDto()
+            {
+                RoomNumber = 8,
+                Capacity = 32,
+                IsAvailable = true,
+                PricePerNightAdult = 12.2m,
+                PricePerNightChild = 8.2m,
+                RoomType = RoomType.Maisonette,
+                BreakfastPrice = 454.00m,
+                AllInclusivePrice = 100.0m
+            };
+            _roomRepositoryMock.Setup(s => s.GetByIdAsync(It.Is<int>(x => x.Equals(roomid))))
+                .ReturnsAsync(roomDto);
+            //Act
+            var userResult = await _service.GetByIdIfExistsAsync(roomid);
+
+            //Assert
+            _roomRepositoryMock.Verify(x => x.GetByIdAsync(roomid), Times.Once);
+            Assert.That(userResult == roomDto);
+        }
+
+
         [TestCase(0)]
         [TestCase(-1)]
         [TestCase(102021)]
@@ -112,6 +141,57 @@ namespace HotelManager.Tests.Services
 
             //Assert
             _roomRepositoryMock.Verify(x => x.SaveAsync(roomDto), Times.Once);
+        }
+        [Test]
+        public async Task WhenGetAllAsync_ThenReturnAllModels()
+        {
+            // Arrange
+            var roomDto = new List<RoomDto>();
+            _roomRepositoryMock.Setup(s => s.GetAllAsync())
+                .ReturnsAsync(roomDto);
+            // Act
+            var result = await _service.GetAllAsync();
+
+            // Assert
+            _roomRepositoryMock.Verify(r => r.GetAllAsync());
+
+
+        }
+
+        [Test]
+        [TestCase(5, 1)]
+        [TestCase(10, 2)]
+        [TestCase(20, 3)]
+        public async Task WhenGetWithPaginationAsync_WithValidPageSizeAndPageNumber_ThenReturnPaginatedModels(int pageSize, int pageNumber)
+        {
+            // Arrange
+            var roomDto = new List<RoomDto>();
+            _roomRepositoryMock
+        .Setup(cr => cr.GetWithPaginationAsync(pageSize, pageNumber))
+        .ReturnsAsync(roomDto);
+
+            // Act
+            var result = await _service.GetWithPaginationAsync(pageSize, pageNumber);
+
+            // Assert
+            _roomRepositoryMock.Verify(r => r.GetWithPaginationAsync(pageSize, pageNumber), Times.Once);
+            Assert.That(result, Is.EquivalentTo(roomDto));
+        }
+
+        [Test]
+        [TestCase(1, true)]
+        [TestCase(2, false)]
+        public async Task WhenExistsByIdAsync_WithValidId_ThenReturnExpectedResult(int id, bool exists)
+        {
+            // Arrange
+            _roomRepositoryMock.Setup(r => r.ExistsByIdAsync(id)).ReturnsAsync(exists);
+
+            // Act
+            var result = await _service.ExistsByIdAsync(id);
+
+            // Assert
+            _roomRepositoryMock.Verify(r => r.ExistsByIdAsync(id), Times.Once);
+            Assert.That(result, Is.EqualTo(exists));
         }
     }
 }

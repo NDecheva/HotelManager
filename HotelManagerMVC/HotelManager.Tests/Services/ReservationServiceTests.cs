@@ -138,6 +138,61 @@ namespace HotelManager.Tests.Services
             //Assert
             _reservationRepositoryMock.Verify(x => x.SaveAsync(reservationDto), Times.Once);
         }
+        [Test]
+
+
+        public async Task WhenGetAllAsync_ThenReturnAllModels()
+        {
+            // Arrange
+            var reservatioDto = new List<ReservationDto>();
+            _reservationRepositoryMock.Setup(s => s.GetAllAsync())
+                .ReturnsAsync(reservatioDto);
+            // Act
+            var result = await _service.GetAllAsync();
+
+            // Assert
+            _reservationRepositoryMock.Verify(r => r.GetAllAsync());
+
+
+        }
+
+
+
+        [Test]
+        [TestCase(5, 1)]
+        [TestCase(10, 2)]
+        [TestCase(20, 3)]
+        public async Task WhenGetWithPaginationAsync_WithValidPageSizeAndPageNumber_ThenReturnPaginatedModels(int pageSize, int pageNumber)
+        {
+            // Arrange
+            var reservatioDto = new List<ReservationDto>();
+            _reservationRepositoryMock
+        .Setup(cr => cr.GetWithPaginationAsync(pageSize, pageNumber))
+        .ReturnsAsync(reservatioDto);
+
+            // Act
+            var result = await _service.GetWithPaginationAsync(pageSize, pageNumber);
+
+            // Assert
+            _reservationRepositoryMock.Verify(r => r.GetWithPaginationAsync(pageSize, pageNumber), Times.Once);
+            Assert.That(result, Is.EquivalentTo(reservatioDto));
+        }
+
+        [Test]
+        [TestCase(1, true)]
+        [TestCase(2, false)]
+        public async Task WhenExistsByIdAsync_WithValidId_ThenReturnExpectedResult(int id, bool exists)
+        {
+            // Arrange
+            _reservationRepositoryMock.Setup(r => r.ExistsByIdAsync(id)).ReturnsAsync(exists);
+
+            // Act
+            var result = await _service.ExistsByIdAsync(id);
+
+            // Assert
+            _reservationRepositoryMock.Verify(r => r.ExistsByIdAsync(id), Times.Once);
+            Assert.That(result, Is.EqualTo(exists));
+        }
     }
 }
 
