@@ -11,7 +11,10 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Moq" Version="4.20.70" />
@@ -25,6 +28,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HotelManager.Data\HotelManager.Data.csproj" />
+    <ProjectReference Include="..\HotelManager.Services\HotelManager.Services.csproj" />
+    <ProjectReference Include="..\HotelManager.Shared\HotelManager.Shared.csproj" />
+    <ProjectReference Include="..\HotelManagerMVC\HotelManagerMVC.csproj" />
   </ItemGroup>
 
   <ItemGroup>
