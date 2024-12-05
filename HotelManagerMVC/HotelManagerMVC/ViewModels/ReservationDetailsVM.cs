@@ -7,9 +7,9 @@ namespace HotelManagerMVC.ViewModels
     public class ReservationDetailsVM : BaseVM
     {
         public int RoomId { get; set; }
-        public virtual RoomDetailsVM Room { get; set; }
+        public  RoomDetailsVM Room { get; set; }
         public int UserId { get; set; }
-        public virtual UserDetailsVM User { get; set; }
+        public  UserDetailsVM User { get; set; }
 
         [DisplayName("Check In Date")]
         [DataType(DataType.Date)]
@@ -23,6 +23,7 @@ namespace HotelManagerMVC.ViewModels
         public bool? HasBreakfast { get; set; }
         [DisplayName("Is All Inclusive")]
         public bool? IsAllInclusive { get; set; }
+        public virtual List<ClientReservationDetailsVM> ClientReservation { get; set; }
 
     }
 }

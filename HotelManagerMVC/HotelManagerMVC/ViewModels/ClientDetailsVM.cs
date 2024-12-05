@@ -20,5 +20,7 @@ namespace HotelManagerMVC.ViewModels
 
         [DisplayName("Is Adult")]
         public bool? IsAdult { get; set; }
+
+        public virtual List<ClientReservationDetailsVM> ClientReservation { get; set; }
     }
 }

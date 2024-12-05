@@ -29,5 +29,7 @@ namespace HotelManagerMVC.ViewModels
         public bool? IsAllInclusive { get; set; }
         [Required]
         public IEnumerable<SelectListItem> User { get; set; }
+        [Required]
+        public IEnumerable<SelectListItem> Room { get; set; }
     }
 }
