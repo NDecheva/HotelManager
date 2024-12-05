@@ -1,31 +1,29 @@
 ﻿using HotelManager.Data.Entities;
 using HotelManager.Shared.Enum;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagerMVC.ViewModels
 {
-    public class RoomDetailsVM
+    public class RoomDetailsVM : BaseVM
     {
-        public RoomDetailsVM()
-        {
-            this.Reservations = new List<Reservation>();
-        }
-
-        [Required]
+        
+        [DisplayName("Room Number")]
         public int RoomNumber { get; set; }
-        [Required]
         public int Capacity { get; set; }
-        [Required]
-        public bool IsAvailable { get; set; }
-        [Required]
+        [DisplayName("Is Available")]
+        public bool? IsAvailable { get; set; }
+
+        [DisplayName("Price Per Night Adult")]
         public decimal PricePerNightAdult { get; set; }
-        [Required]
+        [DisplayName("Price Per Night Child")]
         public decimal PricePerNightChild { get; set; }
-        [Required]
-        public RoomType RoomType { get; set; }
-        [Required]
+
+        [DisplayName("Breakfast Price")]
         public decimal BreakfastPrice { get; set; }
-        [Required]
+
+        [DisplayName("All Inclusive Price")]
         public decimal AllInclusivePrice { get; set; }
+        public virtual UserDetailsVM User { get; set; }
     }
 }

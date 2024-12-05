@@ -1,27 +1,33 @@
 ﻿using HotelManager.Data.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagerMVC.ViewModels
 {
-    public class ReservationEditVM
+    public class ReservationEditVM : BaseVM
     {
         [Required]
         public int RoomId { get; set; }
         [Required]
-        public virtual Room Room { get; set; }
-        [Required]
         public int UserId { get; set; }
         [Required]
-        public virtual User User { get; set; }
-        [Required]
+
+        [DisplayName("Check In Date")]
+        [DataType(DataType.Date)]
         public DateTime CheckInDate { get; set; }
         [Required]
+
+        [DisplayName("Check Out Date")]
+        [DataType(DataType.Date)]
         public DateTime CheckOutDate { get; set; }
         [Required]
-        public bool HasBreakfast { get; set; }
+        [DisplayName("Has Breakfast")]
+        public bool? HasBreakfast { get; set; }
         [Required]
-        public bool IsAllInclusive { get; set; }
+        [DisplayName("Is All Inclusive")]
+        public bool? IsAllInclusive { get; set; }
         [Required]
-        public virtual ICollection<ClientReservation> ClientReservations { get; set; }
+        public IEnumerable<SelectListItem> User { get; set; }
     }
 }

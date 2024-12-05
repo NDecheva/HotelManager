@@ -1,25 +1,28 @@
 ﻿using HotelManager.Data.Entities;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagerMVC.ViewModels
 {
-    public class ReservationDetailsVM
+    public class ReservationDetailsVM : BaseVM
     {
-        [Required]
         public int RoomId { get; set; }
-        [Required]
-        public virtual Room Room { get; set; }
-        [Required]
+        public virtual RoomDetailsVM Room { get; set; }
         public int UserId { get; set; }
-        [Required]
-        public virtual User User { get; set; }
-        [Required]
+        public virtual UserDetailsVM User { get; set; }
+
+        [DisplayName("Check In Date")]
+        [DataType(DataType.Date)]
         public DateTime CheckInDate { get; set; }
-        [Required]
+
+        [DataType(DataType.Date)]
+        [DisplayName("Check Out Date")]
         public DateTime CheckOutDate { get; set; }
-        [Required]
-        public bool HasBreakfast { get; set; }
-        [Required]
-        public bool IsAllInclusive { get; set; }
+
+        [DisplayName("Has Breakfast")]
+        public bool? HasBreakfast { get; set; }
+        [DisplayName("Is All Inclusive")]
+        public bool? IsAllInclusive { get; set; }
+
     }
 }

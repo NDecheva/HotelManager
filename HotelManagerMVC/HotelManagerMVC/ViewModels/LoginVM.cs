@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagerMVC.ViewModels
 {
-    public class LoginVM : BaseVM
+    public class LoginVM : BaseVM 
     {
         [Required]
         public string Username { get; set; }

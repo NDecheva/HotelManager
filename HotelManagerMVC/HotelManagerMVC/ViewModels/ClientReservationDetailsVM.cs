@@ -3,15 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagerMVC.ViewModels
 {
-    public class ClientReservationDetailsVM
+    public class ClientReservationDetailsVM : BaseVM
     {
-        [Required]
         public int ClientId { get; set; }
-        [Required]
-        public virtual Client Client { get; set; }
-        [Required]
         public int ReservationId { get; set; }
-        [Required]
-        public virtual Reservation Reservation { get; set; }
+        public virtual ReservationDetailsVM Reservation { get; set; }
+        public virtual ClientDetailsVM Client { get; set; }
     }
 }
