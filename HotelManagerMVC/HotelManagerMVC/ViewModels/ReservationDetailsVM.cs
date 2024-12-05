@@ -6,6 +6,10 @@ namespace HotelManagerMVC.ViewModels
 {
     public class ReservationDetailsVM : BaseVM
     {
+        public ReservationDetailsVM()
+        {
+            this.ClientReservations = new List<ClientReservationDetailsVM>();
+        }
         public int RoomId { get; set; }
         public  RoomDetailsVM Room { get; set; }
         public int UserId { get; set; }

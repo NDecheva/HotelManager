@@ -7,7 +7,7 @@ namespace HotelManagerMVC.ViewModels
     {
         public int ClientId { get; set; }
         public int ReservationId { get; set; }
-        public  ReservationDetailsVM Reservations { get; set; }
-        public  ClientDetailsVM Clients { get; set; }
+        public  ReservationDetailsVM Reservation { get; set; }
+        public  ClientDetailsVM Client { get; set; }
     }
 }
