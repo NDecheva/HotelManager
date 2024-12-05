@@ -40,4 +40,5 @@ namespace HotelManagerMVC.ViewModels
         [Required]
         public Role Role { get; set; }
     }
+}
 

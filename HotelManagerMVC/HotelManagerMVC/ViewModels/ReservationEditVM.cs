@@ -1,6 +1,4 @@
-﻿using HotelManager.Data.Entities;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagerMVC.ViewModels
@@ -28,8 +26,8 @@ namespace HotelManagerMVC.ViewModels
         [DisplayName("Is All Inclusive")]
         public bool? IsAllInclusive { get; set; }
         [Required]
-        public IEnumerable<SelectListItem> User { get; set; }
+        public virtual List<UserDetailsVM> Users { get; set; }
         [Required]
-        public IEnumerable<SelectListItem> Room { get; set; }
+        public virtual List<RoomDetailsVM> Rooms { get; set; }
     }
 }

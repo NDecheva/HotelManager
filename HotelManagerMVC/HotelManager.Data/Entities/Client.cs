@@ -10,7 +10,7 @@ namespace HotelManager.Data.Entities
     {
         public Client()
         {
-            this.ClientReservations = new List<ClientReservation>();
+            this.ClientReservation = new List<ClientReservation>();
         }
 
         public string FirstName { get; set; }
@@ -18,7 +18,7 @@ namespace HotelManager.Data.Entities
         public string PhoneNumber { get; set; } 
         public string Email { get; set; }
         public bool IsAdult { get; set; }
-        public virtual ICollection<ClientReservation> ClientReservations { get; set; }
+        public virtual ICollection<ClientReservation> ClientReservation { get; set; }
     }
 }
 

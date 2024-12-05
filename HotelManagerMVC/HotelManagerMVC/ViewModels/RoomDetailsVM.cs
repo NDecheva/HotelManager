@@ -26,6 +26,6 @@ namespace HotelManagerMVC.ViewModels
         public decimal AllInclusivePrice { get; set; }
         public UserDetailsVM User { get; set; }
 
-        public virtual List<ReservationDetailsVM> Reservation { get; set; }
+        public virtual List<ReservationDetailsVM> Reservations { get; set; }
     }
 }

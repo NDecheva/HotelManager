@@ -23,7 +23,7 @@ namespace HotelManagerMVC.ViewModels
         public bool? HasBreakfast { get; set; }
         [DisplayName("Is All Inclusive")]
         public bool? IsAllInclusive { get; set; }
-        public virtual List<ClientReservationDetailsVM> ClientReservation { get; set; }
+        public virtual List<ClientReservationDetailsVM> ClientReservations { get; set; }
 
     }
 }

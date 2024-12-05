@@ -24,8 +24,6 @@ namespace HotelManagerMVC.ViewModels
         [Required]
         public RoomType RoomType { get; set; }
         [Required]
-        public virtual ICollection<Reservation> Reservations { get; set; }
-        [Required]
         [DisplayName("Breakfast Price")]
         public decimal BreakfastPrice { get; set; }
         [Required]
