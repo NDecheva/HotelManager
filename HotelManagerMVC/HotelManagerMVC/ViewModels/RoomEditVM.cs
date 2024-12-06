@@ -1,5 +1,6 @@
 ﻿using HotelManager.Data.Entities;
 using HotelManager.Shared.Enum;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -14,7 +15,7 @@ namespace HotelManagerMVC.ViewModels
         public int Capacity { get; set; }
         [Required]
         [DisplayName("Is Available")]
-        public bool? IsAvailable { get; set; }
+        public bool IsAvailable { get; set; }
         [Required]
         [DisplayName("Price Per Night For Adult")]
         public decimal PricePerNightAdult { get; set; }
@@ -29,5 +30,7 @@ namespace HotelManagerMVC.ViewModels
         [Required]
         [DisplayName("All Inclusive Price")]
         public decimal AllInclusivePrice { get; set; }
+        [Required]
+        public IEnumerable<SelectListItem> Rooms { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace HotelManagerMVC.ViewModels
         public int RoomNumber { get; set; }
         public int Capacity { get; set; }
         [DisplayName("Is Available")]
-        public bool? IsAvailable { get; set; }
+        public bool IsAvailable { get; set; }
 
         [DisplayName("Price Per Night For Adult")]
         public decimal PricePerNightAdult { get; set; }
@@ -24,8 +24,8 @@ namespace HotelManagerMVC.ViewModels
 
         [DisplayName("All Inclusive Price")]
         public decimal AllInclusivePrice { get; set; }
-        public UserDetailsVM User { get; set; }
 
+        public UserDetailsVM User { get; set; }
         public virtual List<ReservationDetailsVM> Reservations { get; set; }
     }
 }

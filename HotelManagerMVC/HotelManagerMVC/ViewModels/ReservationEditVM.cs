@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace HotelManagerMVC.ViewModels
@@ -21,13 +22,13 @@ namespace HotelManagerMVC.ViewModels
         public DateTime CheckOutDate { get; set; }
         [Required]
         [DisplayName("Has Breakfast")]
-        public bool? HasBreakfast { get; set; }
+        public bool HasBreakfast { get; set; }
         [Required]
         [DisplayName("Is All Inclusive")]
-        public bool? IsAllInclusive { get; set; }
-        [Required]
-        public virtual List<UserDetailsVM> Users { get; set; }
-        [Required]
-        public virtual List<RoomDetailsVM> Rooms { get; set; }
+        public bool IsAllInclusive { get; set; }
+
+        public IEnumerable<SelectListItem> Users { get; set; }
+
+        public IEnumerable<SelectListItem> Rooms { get; set; }
     }
 }

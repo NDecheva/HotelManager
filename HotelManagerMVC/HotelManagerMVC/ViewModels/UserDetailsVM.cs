@@ -7,7 +7,6 @@ namespace HotelManagerMVC.ViewModels
     public class UserDetailsVM : BaseVM
     {
         public string Username { get; set; }
-        public string Password { get; set; }
         [DisplayName("First Name")]
         public string FirstName { get; set; }
         [DisplayName("Middle Name")]
@@ -20,11 +19,11 @@ namespace HotelManagerMVC.ViewModels
         public string PhoneNumber { get; set; }
         [DisplayName("Hire Date")]
         [DataType(DataType.Date)]
-        public DateTime? HireDate { get; set; }
+        public DateTime HireDate { get; set; }
         [DisplayName("Termination Date")]
         [DataType(DataType.Date)]
-        public DateTime? TerminationDate { get; set; }
+        public DateTime TerminationDate { get; set; }
         [DisplayName("Is Active")]
-        public bool? IsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }
