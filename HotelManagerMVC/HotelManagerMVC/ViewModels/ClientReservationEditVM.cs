@@ -8,11 +8,11 @@ namespace HotelManagerMVC.ViewModels
     {
         [Required]
         public int ClientId { get; set; }
-        [Required]
+
         public int ReservationId { get; set; }
 
-        [Required]
         public IEnumerable<SelectListItem> Clients { get; set; }
+
         [Required]
 
         public IEnumerable<SelectListItem> Reservations { get; set; }

@@ -38,7 +38,7 @@ namespace HotelManagerMVC.ViewModels
         public bool IsActive { get; set; }
         [Required]
         public Role Role { get; set; }
-        [Required]
+
         public IEnumerable<SelectListItem> Roles { get; set; }
     }
 }
