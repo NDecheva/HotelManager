@@ -22,7 +22,7 @@ namespace HotelManagerMVC.ViewModels
         public DateTime HireDate { get; set; }
         [DisplayName("Termination Date")]
         [DataType(DataType.Date)]
-        public DateTime TerminationDate { get; set; }
+        public DateTime? TerminationDate { get; set; }
         [DisplayName("Is Active")]
         public bool IsActive { get; set; }
     }

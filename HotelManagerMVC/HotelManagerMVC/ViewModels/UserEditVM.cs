@@ -32,7 +32,7 @@ namespace HotelManagerMVC.ViewModels
         [Required]
         [DisplayName("Termination Date")]
         [DataType(DataType.Date)]
-        public DateTime TerminationDate { get; set; }
+        public DateTime? TerminationDate { get; set; }
         [Required]
         [DisplayName("Is Active")]
         public bool IsActive { get; set; }

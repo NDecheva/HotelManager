@@ -7,7 +7,11 @@ namespace HotelManagerMVC.ViewModels
 {
     public class RoomDetailsVM : BaseVM
     {
-        
+
+        public RoomDetailsVM()
+        {
+            this.Reservations = new List<ReservationDetailsVM>();
+        }
         [DisplayName("Room Number")]
         public int RoomNumber { get; set; }
         public int Capacity { get; set; }
@@ -25,7 +29,6 @@ namespace HotelManagerMVC.ViewModels
         [DisplayName("All Inclusive Price")]
         public decimal AllInclusivePrice { get; set; }
 
-        public UserDetailsVM User { get; set; }
         public virtual List<ReservationDetailsVM> Reservations { get; set; }
     }
 }

@@ -30,7 +30,6 @@ namespace HotelManagerMVC.ViewModels
         [Required]
         [DisplayName("All Inclusive Price")]
         public decimal AllInclusivePrice { get; set; }
-        [Required]
-        public IEnumerable<SelectListItem> Rooms { get; set; }
+        
     }
 }
