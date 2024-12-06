@@ -18,6 +18,8 @@ namespace HotelManagerMVC.ViewModels
         [DisplayName("Is Available")]
         public bool IsAvailable { get; set; }
 
+        public RoomType RoomType { get; set; }
+
         [DisplayName("Price Per Night For Adult")]
         public decimal PricePerNightAdult { get; set; }
         [DisplayName("Price Per Night For Child")]
