@@ -13,8 +13,6 @@ namespace HotelManagerMVC.ViewModels
 
         public IEnumerable<SelectListItem> Clients { get; set; }
 
-        [Required]
-
         public IEnumerable<SelectListItem> Reservations { get; set; }
     }
 }
