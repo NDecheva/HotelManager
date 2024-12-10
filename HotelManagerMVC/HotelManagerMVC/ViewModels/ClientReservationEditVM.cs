@@ -8,6 +8,7 @@ namespace HotelManagerMVC.ViewModels
     {
         [Required]
         public int ClientId { get; set; }
+        [Required]
 
         public int ReservationId { get; set; }
 

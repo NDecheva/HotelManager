@@ -1,6 +1,7 @@
 ﻿using HotelManager.Shared.Attributes;
 using HotelManager.Shared.Dtos;
 using HotelManager.Shared.Repos.Contracts;
+using HotelManager.Shared.Security;
 using HotelManager.Shared.Services;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,25 @@ namespace HotelManager.Services
         public UserService(IUserRepository repository) : base(repository)
         {
 
+        }
+
+        public async Task<bool> CanUserLoginAsync(string username, string password)
+        {
+            var user = await _repository.GetByUsernameAsync(username);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            bool passwordMatches = PasswordHasher.VerifyPassword(password, user.Password);
+
+            return passwordMatches;
+        }
+
+        public async Task<UserDto> GetByUsernameAsync(string username)
+        {
+            return await _repository.GetByUsernameAsync(username);
         }
     }
 }

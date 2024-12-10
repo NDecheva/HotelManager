@@ -10,7 +10,8 @@ namespace HotelManager.Shared.Services
 {
     public interface IUserService : IBaseCrudService<UserDto, IUserRepository>
     {
-
+        public Task<UserDto> GetByUsernameAsync(string username);
+        public Task<bool> CanUserLoginAsync(string username, string password);
     }
 }
 
