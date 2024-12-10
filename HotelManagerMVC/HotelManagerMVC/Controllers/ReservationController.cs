@@ -5,6 +5,7 @@ using HotelManager.Shared.Services;
 using HotelManagerMVC.ViewModels;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HotelManagerMVC.Controllers
 {
@@ -19,13 +20,13 @@ namespace HotelManagerMVC.Controllers
             this._userService = _userService;
             this._roomService = _roomService;
         }
-        //protected virtual async Task<ReservationEditVM> PrePopulateVMAsync(ReservationEditVM editVM)
-        //{
+        protected virtual async Task<ReservationEditVM> PrePopulateVMAsync(ReservationEditVM editVM)
+        {
 
-        //    editVM.Users = (await _userService.GetAllAsync()).Select(x => new SelectListItem($"{x.FirstName}", x.Id.ToString()));
-        //    editVM.Rooms = (await _roomService.GetAllAsync()).Select(x => new SelectListItem($"{x.}", x.Id.ToString()));
-        //    return editVM;
+            editVM.Users = (await _userService.GetAllAsync()).Select(x => new SelectListItem($"{x.FirstName} {x.LastName}", x.Id.ToString()));
+            editVM.Rooms = (await _roomService.GetAllAsync()).Select(x => new SelectListItem($"{x.RoomType} - {x.Capacity}", x.Id.ToString()));
+            return editVM;
 
-        //}
+        }
     }
 }
