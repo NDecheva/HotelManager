@@ -21,7 +21,7 @@ namespace HotelManagerMVC.Controllers
         private readonly IUserService usersService;
         private readonly IMapper mapper;
 
-        public AuthController(UserService usersService, IMapper mapper)
+        public AuthController(IUserService usersService, IMapper mapper)
         {
             this.usersService = usersService;
             this.mapper = mapper;
