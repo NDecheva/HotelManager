@@ -1,5 +1,5 @@
 ﻿@using HotelManagerMVC.Controllers
-@using HotelManagerMVC.Shared.Extensions
+@using HotelManager.Shared.Extention
 @model HotelManagerMVC.ViewModels.UserEditVM
 
 @{
@@ -23,14 +23,6 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Username)
             @Html.ValidationMessageFor(model => model.Username)
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
         </div>
     </div>
 
@@ -109,7 +101,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Role, new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Role, Model.RoleList, "Select a role", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.Role, Model.Roles, "Select a role", new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Role)
         </div>
     </div>
