@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManager.Services", "Ho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManager.Data", "HotelManager.Data\HotelManager.Data.csproj", "{44224B73-7805-4156-8E18-45CEDA458699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManager.Tests", "HotelManager.Tests\HotelManager.Tests.csproj", "{9C2443B9-CF00-4432-9608-48E2AC0EAEC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManager.Tests", "HotelManager.Tests\HotelManager.Tests.csproj", "{9C2443B9-CF00-4432-9608-48E2AC0EAEC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
