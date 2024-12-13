@@ -1,0 +1,83 @@
+﻿@model HotelManagerMVC.ViewModels.RoomDetailsVM
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PricePerNightAdult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PricePerNightChild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BreakfastPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AllInclusivePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reservations)
+        </th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePerNightAdult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePerNightChild)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BreakfastPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllInclusivePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reservations)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+            </td>
+        </tr>
+    }
+</table>
