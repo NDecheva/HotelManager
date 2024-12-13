@@ -57,7 +57,7 @@
     <div class="form-group">
             @Html.LabelFor(model => model.IsAdult, new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-                @Html.EditorFor(model => model.IsAdult)
+                @Html.CheckBoxFor(model => model.IsAdult)
                 @Html.ValidationMessageFor(model => model.IsAdult)
         </div>
     </div>
