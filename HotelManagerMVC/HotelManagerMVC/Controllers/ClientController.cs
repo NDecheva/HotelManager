@@ -15,11 +15,10 @@ namespace HotelManagerMVC.Controllers
     public class ClientController : BaseCrudController<ClientDto, IClientRepository, IClientService, ClientEditVM, ClientDetailsVM>
     {
 
-        public IReservationService _reservationService { get; set; }
 
-        public ClientController(IClientService service, IReservationService reservationService, IMapper mapper) : base(service, mapper)
+        public ClientController(IClientService service, IMapper mapper) : base(service, mapper)
         {
-            this._reservationService = reservationService;
+            
         }
         
 

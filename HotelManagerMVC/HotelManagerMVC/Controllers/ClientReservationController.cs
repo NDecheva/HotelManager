@@ -13,13 +13,11 @@ namespace HotelManagerMVC.Controllers
 
     public class ClientReservationController : BaseCrudController<ClientReservationDto, IClientReservationRepository, IClientReservationService, ClientReservationEditVM, ClientReservationDetailsVM>
     {
-        public IReservationService _reservationService { get; set; }
-        public IClientService _clientService { get; set; }
+    
 
-        public ClientReservationController(IClientReservationService service,IReservationService reservationService, IClientService clientService,IMapper mapper) : base(service,mapper)
+        public ClientReservationController(IClientReservationService service, IMapper mapper) : base(service,mapper)
         {
-            this._reservationService = reservationService;
-            this._clientService = clientService;
+            
         }
 
         //protected virtual async Task<ClientReservationEditVM> PrePopulateVMAsync(ClientReservationEditVM editVM)
