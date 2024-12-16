@@ -3,7 +3,9 @@ using HotelManager.Services;
 using HotelManager.Shared.Dtos;
 using HotelManager.Shared.Enum;
 using HotelManager.Shared.Repos.Contracts;
+using HotelManager.Shared.Security;
 using HotelManager.Shared.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
 using Moq;
 using System;
@@ -205,6 +207,70 @@ namespace HotelManager.Tests.Services
             _userRepositoryMock.Verify(r => r.ExistsByIdAsync(id), Times.Once);
             Assert.That(result, Is.EqualTo(exists));
         }
+        
+
+
+        [Test]
+        public void HashPassword_And_VerifyPassword_ReturnsTrue_ForCorrectPassword()
+        {
+            // Arrange
+            string password = "petkovkatisthebest";
+
+            // Act
+            string hashedPassword = PasswordHasher.HashPassword(password);
+            bool isVerified = PasswordHasher.VerifyPassword(password, hashedPassword);
+
+            // Assert
+            Assert.That(isVerified);
+        }
+
+        [Test]
+        public void VerifyPassword_ReturnsFalse_ForIncorrectPassword()
+        {
+            // Arrange
+            string password = "petvokataisthebest";
+            string incorrectPassword = "petkovkataisntthebest";
+
+            string hashedPassword = PasswordHasher.HashPassword(password);
+
+            // Act
+            bool isVerified = PasswordHasher.VerifyPassword(incorrectPassword, hashedPassword);
+
+            // Assert
+            Assert.False(isVerified);
+        }
+
+        [Test]
+        public void VerifyPassword_ReturnsFalse_ForNullHashedPassword()
+        {
+            // Arrange
+            string password = "rabotanebiva";
+
+            // Act
+            bool isVerified = PasswordHasher.VerifyPassword(password, null);
+
+            // Assert
+            Assert.False(isVerified);
+        }
+
+        [Test]
+        public void HashPassword_ReturnsDifferentHashes_ForDifferentPasswords()
+        {
+            // Arrange
+            string password1 = "petkovkathebest";
+            string password2 = "petkovkataisntthebest";
+
+            // Act
+            string hashedPassword1 = PasswordHasher.HashPassword(password1);
+            string hashedPassword2 = PasswordHasher.HashPassword(password2);
+
+            // Assert
+            Assert.NotEqual(hashedPassword1, hashedPassword2);
+        }
+
+
+
+
     }
 
 }
