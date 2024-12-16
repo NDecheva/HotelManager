@@ -20,13 +20,6 @@ namespace HotelManagerMVC.Controllers
             
         }
 
-        //protected virtual async Task<ClientReservationEditVM> PrePopulateVMAsync(ClientReservationEditVM editVM)
-        //{
-
-        //    editVM.Clients = (await _clientService.GetAllAsync()).Select(x => new SelectListItem($"{x.FirstName} {x.LastName}", x.Id.ToString()));
-        //    editVM.Reservations = (await _reservationService.GetAllAsync()).Select(x => new SelectListItem($"{x.}", x.Id.ToString()));
-        //    return editVM;
-
-        //}
+        
     }
 }

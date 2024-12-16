@@ -12,10 +12,10 @@ namespace HotelManagerMVC.Controllers
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Admin, User")]
     public class ReservationController :BaseCrudController<ReservationDto, IReservationRepository, IReservationService, ReservationEditVM, ReservationDetailsVM>
     {
-        public IUserService _userService { get; set; }
-        public IRoomService _roomService { get; set; }
+        private readonly IUserService _userService;
+        private readonly IRoomService _roomService;
 
-        public ReservationController(IReservationService _service, IUserService _userService, IRoomService _roomService, IMapper mapper):base(_service,mapper)
+        public ReservationController(IReservationService service, IUserService _userService, IRoomService _roomService, IMapper mapper):base(service,mapper)
         {
             this._userService = _userService;
             this._roomService = _roomService;
