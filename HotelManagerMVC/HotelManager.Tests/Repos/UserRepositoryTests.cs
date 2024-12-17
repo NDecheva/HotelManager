@@ -20,19 +20,9 @@ namespace HotelManager.Tests.Repos
 {
     public class UserRepositoryTests : BaseRepositoryTests<UserRepository, User, UserDto>
     {
-        private readonly IUserRepository _userRepositoryMock;
-        private Mock<HotelManagerDbContext> mockContext;
-        private Mock<DbSet<User>> mockDbSet;
+        private DbContextOptions<HotelManagerDbContext> _dbContextOptions;
         private Mock<IMapper> mockMapper;
-        private UserDto user;
-        public UserRepositoryTests()
-        {
-            mockContext = new Mock<HotelManagerDbContext>();
-            mockDbSet = new Mock<DbSet<User>>();
-            mockMapper = new Mock<IMapper>();
-            user = new UserDto();
-            
-        }
+      
 
         [Test]
         public async Task GetByUsernameAsync_UserExists_ReturnsUserDto()
@@ -43,8 +33,8 @@ namespace HotelManager.Tests.Repos
 
             // Arrange
             var username = "testuser";
-            var user = new User { Id = 1, Username = username, FirstName = "Example", Email="nababati",MiddleName="nqmaime",PhoneNumber="823324324324", UCN="888888888", LastName = "Example", Password = "password" };
-            var userDto = new UserDto { Id = 1, Username = username, FirstName = "Example", LastName = "Example", Password = "password" };
+            var user = new User { Id = 1, Username = username, FirstName = "Petur", Email="nababati",MiddleName="nqmaime",PhoneNumber="823324324324", UCN="888888888", LastName = "Example", Password = "password" };
+            var userDto = new UserDto { Id = 1, Username = username, FirstName = "Petur", Email = "nababati", MiddleName = "nqmaime", PhoneNumber = "823324324324", UCN = "888888888", LastName = "Example", Password = "password" };
             using (var context = new HotelManagerDbContext(_dbContextOptions))
             {
                 context.Users.Add(user);
