@@ -20,9 +20,11 @@ namespace HotelManagerMVC.Controllers
 
         protected override async Task<RoomEditVM> PrePopulateVMAsync(RoomEditVM editVM)
         {
-            editVM.RoomList = Enum.GetValues(typeof(RoomType)).Cast<RoomType>().Select(s => new SelectListItem(s.ToString(), ((int)s).ToString()));
+            editVM.RoomList = Enum.GetValues(typeof(RoomType)).Cast<RoomType>().Select(s => new SelectListItem(s.ToString(), ((int)s).ToString())).ToList();
             return editVM;
 
+
         }
+
     }
 }
