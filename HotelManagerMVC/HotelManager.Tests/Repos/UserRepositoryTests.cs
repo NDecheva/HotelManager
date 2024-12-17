@@ -8,6 +8,7 @@ using HotelManager.Shared.Services;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NuGet.Protocol.Core.Types;
+using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,25 +30,48 @@ namespace HotelManager.Tests.Repos
             mockContext = new Mock<HotelManagerDbContext>();
             mockDbSet = new Mock<DbSet<User>>();
             mockMapper = new Mock<IMapper>();
+            user = new UserDto();
+            
         }
-
-
 
         [Test]
-        public async Task GetByUsernameAsync_UserNotFound_ReturnsNull()
+        public async Task GetByUsernameAsync_UserExists_ReturnsUserDto()
         {
-            // Arrange
-            string username = "petkovkata";
+            var _dbContextOptions = new DbContextOptionsBuilder<HotelManagerDbContext>()
+                .UseInMemoryDatabase("HotelManagerMVC")
+                .Options;
 
-            mockDbSet.Setup(db => db.FirstOrDefaultAsync(It.Is<Expression<User, bool>(expr => expr.Compile().Invoke(new User { Username = username }))))
-                     .ReturnsAsync((User)null);
+            // Arrange
+            var username = "testuser";
+            var user = new User { Id = 1, Username = username, FirstName = "Example", Email="nababati",MiddleName="nqmaime",PhoneNumber="823324324324", UCN="888888888", LastName = "Example", Password = "password" };
+            var userDto = new UserDto { Id = 1, Username = username, FirstName = "Example", LastName = "Example", Password = "password" };
+            using (var context = new HotelManagerDbContext(_dbContextOptions))
+            {
+                context.Users.Add(user);
+                await context.SaveChangesAsync();
+            }
+
+            mockMapper.Setup(m => m.Map<UserDto>(It.IsAny<User>())).Returns(userDto);
 
             // Act
-            var result = await _userRepositoryMock.GetByUsernameAsync(username);
+            UserDto result;
+            using (var context = new HotelManagerDbContext(_dbContextOptions))
+            {
+                var _userRepositoryMock = new UserRepository(context, mockMapper.Object);
+                result = await _userRepositoryMock.GetByUsernameAsync(username);
+            }
 
             // Assert
-            Assert.That(result, Is.Null);
+            ClassicAssert.NotNull(result);
+            ClassicAssert.AreEqual(username, result.Username);
+            ClassicAssert.AreEqual(userDto.FirstName, result.FirstName);
+            ClassicAssert.AreEqual(userDto.LastName, result.LastName);
+            ClassicAssert.AreEqual(userDto.Password, result.Password);
         }
+
+
+
+
 
 
     }
