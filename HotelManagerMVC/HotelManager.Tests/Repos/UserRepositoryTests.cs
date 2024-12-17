@@ -21,12 +21,19 @@ namespace HotelManager.Tests.Repos
     public class UserRepositoryTests : BaseRepositoryTests<UserRepository, User, UserDto>
     {
         private DbContextOptions<HotelManagerDbContext> _dbContextOptions;
-        private Mock<IMapper> mockMapper;
+        private IMapper mapper;
       
 
         [Test]
         public async Task GetByUsernameAsync_UserExists_ReturnsUserDto()
         {
+            var mapperConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<User, UserDto>().ReverseMap();
+            });
+
+            mapper = mapperConfig.CreateMapper();
+
             var _dbContextOptions = new DbContextOptionsBuilder<HotelManagerDbContext>()
                 .UseInMemoryDatabase("HotelManagerMVC")
                 .Options;
@@ -41,13 +48,12 @@ namespace HotelManager.Tests.Repos
                 await context.SaveChangesAsync();
             }
 
-            mockMapper.Setup(m => m.Map<UserDto>(It.IsAny<User>())).Returns(userDto);
 
             // Act
             UserDto result;
             using (var context = new HotelManagerDbContext(_dbContextOptions))
             {
-                var _userRepositoryMock = new UserRepository(context, mockMapper.Object);
+                var _userRepositoryMock = new UserRepository(context, mapper);
                 result = await _userRepositoryMock.GetByUsernameAsync(username);
             }
 
