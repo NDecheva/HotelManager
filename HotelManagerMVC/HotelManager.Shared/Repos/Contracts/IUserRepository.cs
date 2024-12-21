@@ -9,5 +9,7 @@ namespace HotelManager.Shared.Repos.Contracts
 {
     public interface IUserRepository : IBaseRepository<UserDto>
     {
+        public Task<UserDto> GetByUsernameAsync(string username);
+
     }
 }

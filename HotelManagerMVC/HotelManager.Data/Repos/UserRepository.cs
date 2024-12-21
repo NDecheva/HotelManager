@@ -18,4 +18,8 @@ public class UserRepository : BaseRepository<User, UserDto>, IUserRepository
 	{
 
 	}
+    public async Task<UserDto> GetByUsernameAsync(string username)
+    {
+        return MapToModel(await _dbSet.FirstOrDefaultAsync(u => u.Username == username));
+    }
 }

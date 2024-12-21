@@ -3,7 +3,9 @@ using HotelManager.Services;
 using HotelManager.Shared.Dtos;
 using HotelManager.Shared.Enum;
 using HotelManager.Shared.Repos.Contracts;
+using HotelManager.Shared.Security;
 using HotelManager.Shared.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
 using Moq;
 using System;
@@ -205,6 +207,75 @@ namespace HotelManager.Tests.Services
             _userRepositoryMock.Verify(r => r.ExistsByIdAsync(id), Times.Once);
             Assert.That(result, Is.EqualTo(exists));
         }
+        
+
+
+        [Test]
+        public void HashPassword_And_VerifyPassword_ReturnsTrue_ForCorrectPassword()
+        {
+            // Arrange
+            string password = "petkovkatisthebest";
+
+            // Act
+            string hashedPassword = PasswordHasher.HashPassword(password);
+            bool isVerified = PasswordHasher.VerifyPassword(password, hashedPassword);
+
+            // Assert
+            Assert.That(isVerified);
+        }
+
+        [Test]  
+        public async Task CanUserLoginAsync_UserNotFound_ReturnsFalse()
+        {
+            // Arrange
+            string username = "petkovkata";
+            string password = "1111";
+
+
+            _userRepositoryMock.Setup(r => r.GetByUsernameAsync(username))
+                           .ReturnsAsync((UserDto)null);
+
+            // Act
+            bool result = await _service.CanUserLoginAsync(username, password);
+
+            // Assert
+            Assert.That(!result);  
+        }
+
+        [Test]
+        public async Task CanUserLoginAsync_PasswordMatches_ReturnsTrue()
+        {
+            string username = "petkovkata";
+            string password = "petkovataisthebest";
+
+            var hashedPassword = PasswordHasher.HashPassword(password);
+
+            var user = new UserDto { Username = username, Password = hashedPassword };
+
+            _userRepositoryMock.Setup(repo => repo.GetByUsernameAsync(username))
+                           .ReturnsAsync(user); 
+
+            bool result = await _service.CanUserLoginAsync(username, password);
+
+            Assert.That(result);
+        }
+
+
+        [Test]
+        public async Task GetByUsernameAsync_UserNotFound_ReturnsNull()
+        {
+            string username = "petkovkata";
+
+            _userRepositoryMock.Setup(repo => repo.GetByUsernameAsync(username))
+                           .ReturnsAsync((UserDto)null);
+
+            var result = await _service.GetByUsernameAsync(username);
+
+            Assert.That(result==user);
+        }
+
+       
+
     }
 
 }
