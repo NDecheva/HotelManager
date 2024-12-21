@@ -20,41 +20,59 @@ namespace HotelManager.Tests.Repos
 {
     public class UserRepositoryTests : BaseRepositoryTests<UserRepository, User, UserDto>
     {
-        private DbContextOptions<HotelManagerDbContext> _dbContextOptions;
-        private IMapper mapper;
-      
+        private readonly DbContextOptions<HotelManagerDbContext> _dbContextOptions;
+
+        public UserRepositoryTests()
+        {
+            _dbContextOptions = new DbContextOptionsBuilder<HotelManagerDbContext>()
+                .UseInMemoryDatabase("HotelManagerMVC")
+                .Options;
+        }
 
         [Test]
         public async Task GetByUsernameAsync_UserExists_ReturnsUserDto()
         {
-            var mapperConfig = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<User, UserDto>().ReverseMap();
-            });
-
-            mapper = mapperConfig.CreateMapper();
-
-            var _dbContextOptions = new DbContextOptionsBuilder<HotelManagerDbContext>()
-                .UseInMemoryDatabase("HotelManagerMVC")
-                .Options;
-
             // Arrange
-            var username = "testuser";
-            var user = new User { Id = 1, Username = username, FirstName = "Petur", Email="nababati",MiddleName="nqmaime",PhoneNumber="823324324324", UCN="888888888", LastName = "Example", Password = "password" };
-            var userDto = new UserDto { Id = 1, Username = username, FirstName = "Petur", Email = "nababati", MiddleName = "nqmaime", PhoneNumber = "823324324324", UCN = "888888888", LastName = "Example", Password = "password" };
+            var username = "petkovkata";
+            var user = new User
+            {
+                Id = 1,
+                Username = username,
+                FirstName = "Petur",
+                Email = "nababati",
+                MiddleName = "nqmaime",
+                PhoneNumber = "823324324324",
+                UCN = "888888888",
+                LastName = "Example",
+                Password = "password"
+            };
+            var userDto = new UserDto
+            {
+                Id = 1,
+                Username = username,
+                FirstName = "Petur",
+                Email = "nababati",
+                MiddleName = "nqmaime",
+                PhoneNumber = "823324324324",
+                UCN = "888888888",
+                LastName = "Example",
+                Password = "password"
+            };
+
+            mockMapper.Setup(m => m.Map<UserDto>(It.IsAny<User>())).Returns(userDto);
+
             using (var context = new HotelManagerDbContext(_dbContextOptions))
             {
                 context.Users.Add(user);
                 await context.SaveChangesAsync();
             }
 
-
             // Act
             UserDto result;
             using (var context = new HotelManagerDbContext(_dbContextOptions))
             {
-                var _userRepositoryMock = new UserRepository(context, mapper);
-                result = await _userRepositoryMock.GetByUsernameAsync(username);
+                var userRepository = new UserRepository(context, mockMapper.Object);
+                result = await userRepository.GetByUsernameAsync(username);
             }
 
             // Assert
@@ -64,11 +82,5 @@ namespace HotelManager.Tests.Repos
             ClassicAssert.AreEqual(userDto.LastName, result.LastName);
             ClassicAssert.AreEqual(userDto.Password, result.Password);
         }
-
-
-
-
-
-
     }
 }

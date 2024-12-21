@@ -16,10 +16,10 @@ namespace HotelManager.Tests
             where T : class, IBaseEntity
             where TModel : BaseModel
     {
-        private Mock<HotelManagerDbContext> mockContext;
-        private Mock<DbSet<T>> mockDbSet;
-        private Mock<IMapper> mockMapper;
-        private TRepository repository;
+        protected Mock<HotelManagerDbContext> mockContext;
+        protected Mock<DbSet<T>> mockDbSet;
+        protected Mock<IMapper> mockMapper;
+        protected TRepository repository;
 
         [SetUp]
         public void Setup()
