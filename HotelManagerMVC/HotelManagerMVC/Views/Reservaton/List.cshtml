@@ -1,0 +1,72 @@
+﻿@model IEnumerable<HotelManagerMVC.ViewModels.ReservationDetailsVM>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>User</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckInDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckOutDate)
+        </th>
+
+        
+        <th>
+            @Html.DisplayNameFor(model => model.HasBreakfast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAllInclusive)
+        </th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomId)
+            </td>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckInDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckOutDate)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.HasBreakfast)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAllInclusive)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
