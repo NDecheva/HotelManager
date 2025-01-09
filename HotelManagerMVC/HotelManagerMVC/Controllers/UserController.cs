@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
+using HotelManager.Shared;
 using HotelManager.Shared.Dtos;
 using HotelManager.Shared.Enum;
 using HotelManager.Shared.Repos.Contracts;
+using HotelManager.Shared.Security;
 using HotelManager.Shared.Services;
 using HotelManagerMVC.ViewModels;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HotelManagerMVC.Controllers
@@ -28,6 +31,12 @@ namespace HotelManagerMVC.Controllers
             editVM.Roles = Enum.GetValues(typeof(Role)).Cast<Role>().Select(s => new SelectListItem(s.ToString(), ((int)s).ToString())).ToList();
 
             return editVM;
+        }
+
+        public override Task<IActionResult> Create(UserEditVM editVM)
+        {
+            editVM.Password = PasswordHasher.HashPassword(Constants.DefaultPassword);
+            return base.Create(editVM);
         }
     }
 }

@@ -18,5 +18,8 @@ namespace HotelManager.Shared
             public static readonly string InvalidCredentials = "Credentials is not valid.\n";
 
             public static readonly string UserAlreadyExists = "Credentials is not valid.\n";
-        }
+
+            public static readonly string DefaultPassword = "Petkovkata is the best";
+
+    }
 }
