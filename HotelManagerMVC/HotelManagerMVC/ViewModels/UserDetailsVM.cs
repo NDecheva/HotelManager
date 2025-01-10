@@ -25,5 +25,8 @@ namespace HotelManagerMVC.ViewModels
         public DateTime? TerminationDate { get; set; }
         [DisplayName("Is Active")]
         public bool IsActive { get; set; }
+
+        public Role Role { get; set; }
+
     }
 }

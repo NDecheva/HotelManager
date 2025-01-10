@@ -1,5 +1,8 @@
 ﻿@model HotelManagerMVC.ViewModels.RoomEditVM
 
+
+<link rel="stylesheet" href="~/css/style.css">
+
 @{
     ViewBag.Title = "Create";
 }
@@ -26,6 +29,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Capacity)
                 @Html.ValidationMessageFor(model => model.Capacity)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoomType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.RoomType, Model.RoomTypeList, "Choose a Room...",
+                         new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RoomType)
             </div>
         </div>
 
@@ -70,17 +81,16 @@
         </div>
 
 
-        @if (User.IsInRole("Admin"))
-        {
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+      <br />
 
-            </div>
+        <div>
+            <td class="action-links">
+
+                <button type="submit" class="btn btn-sm btn-success btn-create">Create</button>
+                @Html.Raw("|")
+
+                @Html.ActionLink("Back to List", "List", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+            </td>
         </div>
-        }
     </div>
 }
-<div>
-    @Html.ActionLink("Back to List", "List")
-</div>

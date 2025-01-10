@@ -1,5 +1,8 @@
 ﻿@model HotelManagerMVC.ViewModels.RoomDetailsVM
 
+<link rel="stylesheet" href="~/css/style.css">
+
+
 @{
     ViewBag.Title = "Details";
 }
@@ -25,6 +28,13 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomType)
         </dd>
 
 
@@ -73,7 +83,14 @@
         </dd>
     </dl>
 </div>
+<br />
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "List")
+    <td class="action-links">
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-success" })
+            @Html.Raw("|")
+        }
+        @Html.ActionLink("Back to List", "List", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+    </td>
 </p>
