@@ -1,8 +1,12 @@
 ﻿@model IEnumerable<HotelManagerMVC.ViewModels.UserDetailsVM>
+
+<link rel="stylesheet" href="~/css/style.css">
+
+
 @{
     ViewBag.Title = "Index";
 }
-<h2>User</h2>
+<h2>Users</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -21,14 +25,9 @@
             @Html.DisplayNameFor(model => model.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UCN)
+            @Html.DisplayNameFor(model => model.Role)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.HireDate)
         </th>
@@ -60,17 +59,8 @@
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => item.UCN)
+                @Html.DisplayFor(modelItem => item.Role)
             </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.HireDate)
             </td>
@@ -84,15 +74,27 @@
             </td>
 
             <td class="action-links">
-                
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-secondary" })
-                    @Html.Raw("| ")
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
-                    @Html.Raw("|")
-                
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-secondary" })
+                @Html.Raw("|")
+
                 @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-info" })
+
+
+                @Html.Raw("|")
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+
 
             </td>
         </tr>
     }
 </table>
+
+<td class="action-links">
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="text-left mb-3">
+            <a href="@Url.Action("Create")" class="btn btn-primary">Create New</a>
+        </div>
+    }
+</td>

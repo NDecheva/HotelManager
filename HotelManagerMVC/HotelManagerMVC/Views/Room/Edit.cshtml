@@ -1,0 +1,96 @@
+﻿@model HotelManagerMVC.ViewModels.RoomEditVM
+
+<link rel="stylesheet" href="~/css/style.css">
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<h2>Edit room</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Room</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoomNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoomNumber)
+                @Html.ValidationMessageFor(model => model.RoomNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Capacity, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Capacity)
+                @Html.ValidationMessageFor(model => model.Capacity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoomType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.RoomType, Model.RoomTypeList, "Choose a RoomType...",
+                         new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RoomType)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsAvailable, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.IsAvailable)
+                @Html.ValidationMessageFor(model => model.IsAvailable)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PricePerNightAdult, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PricePerNightAdult)
+                @Html.ValidationMessageFor(model => model.PricePerNightAdult)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PricePerNightChild, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PricePerNightChild)
+                @Html.ValidationMessageFor(model => model.PricePerNightChild)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BreakfastPrice, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BreakfastPrice)
+                @Html.ValidationMessageFor(model => model.BreakfastPrice)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AllInclusivePrice, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AllInclusivePrice)
+                @Html.ValidationMessageFor(model => model.AllInclusivePrice)
+            </div>
+        </div>
+
+        <br />
+        <td class="action-links">
+
+            <button type="submit" class="btn btn-small btn-success">Save</button>
+            @Html.Raw("|")
+
+            @Html.ActionLink("Back to List", "List", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+        </td>
+    </div>
+}

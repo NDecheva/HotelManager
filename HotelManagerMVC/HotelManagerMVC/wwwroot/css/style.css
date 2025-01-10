@@ -1,0 +1,24 @@
+﻿.action-links {
+    display: flex; /* Подрежда елементите хоризонтално */
+    flex-wrap: nowrap; /* Предотвратява пренасяне на редовете */
+    gap: 10px; /* Разстояние между линковете */
+    align-items: center; /* Вертикално подравняване по център */
+}
+
+    .action-links a {
+        min-width: 100px;
+        padding: 8px 12px; /* Вътрешно отстояние */
+        text-align: center;
+        display: inline-block;
+    }
+
+.table th, .table td {
+    min-width: 100px; /* Задава минимална ширина на колоните */
+    text-align: center; /* Центрира текста в хедърите и клетките */
+    padding: 10px; /* Добавя отстояние вътре в клетките */
+}
+
+.table th {
+    background-color: #f8f9fa; /* Светъл фон за хедърите */
+    font-weight: bold; /* Удебелен текст */
+}

@@ -1,0 +1,96 @@
+﻿@model HotelManagerMVC.ViewModels.RoomDetailsVM
+
+<link rel="stylesheet" href="~/css/style.css">
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomType)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsAvailable)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PricePerNightAdult)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PricePerNightAdult)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PricePerNightChild)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PricePerNightChild)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BreakfastPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BreakfastPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AllInclusivePrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AllInclusivePrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Reservations)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Reservations)
+        </dd>
+    </dl>
+</div>
+<br />
+<p>
+    <td class="action-links">
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-success" })
+            @Html.Raw("|")
+        }
+        @Html.ActionLink("Back to List", "List", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+    </td>
+</p>

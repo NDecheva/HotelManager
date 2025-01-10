@@ -1,5 +1,8 @@
 ﻿@model HotelManagerMVC.ViewModels.UserDetailsVM
 
+<link rel="stylesheet" href="~/css/style.css">
+
+
 @{
     ViewBag.Title = "Delete";
 }
@@ -88,8 +91,11 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "List")
+
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.Raw("|")
+
+            @Html.ActionLink("Back to List", "List", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
         </div>
     }
 </div>
