@@ -24,9 +24,7 @@
         <th>
             @Html.DisplayNameFor(model => model.IsAvailable)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RoomType)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.PricePerNightAdult)
         </th>
@@ -42,7 +40,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Reservations)
         </th>
-        <th>Actions</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -59,18 +56,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IsAvailable)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomType)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.PricePerNightAdult)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PricePerNightChild)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomNumber)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.BreakfastPrice)
             </td>
@@ -83,8 +76,7 @@
             <td class="action-links">
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Create new", "Create", new { id = item }, new { @class = "btn btn-sm btn-primary" })
-                    @Html.Raw("|")
+                    
 
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-secondary" })
                     @Html.Raw("|")
@@ -100,5 +92,16 @@
                 }
             </td>
         </tr>
+         
+
     }
 </table>
+
+<td class="action-links">
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="text-left mb-3">
+            <a href="@Url.Action("Create")" class="btn btn-primary">Create New</a>
+        </div>
+    }
+</td>
