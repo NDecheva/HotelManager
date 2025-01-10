@@ -6,7 +6,7 @@
 
 <h2>Details</h2>
 <div>
-    <h4>User</h4>
+    <h4>Client</h4>
     <hr />
     <dl class="dl-horizontal">
 
@@ -61,6 +61,11 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "List")
+    <td class="action-links">
+
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-success" })
+        @Html.Raw("|")
+
+        @Html.ActionLink("Back to List", "List", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+    </td>
 </p>

@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>User</h4>
+        <h4>Client</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
@@ -62,13 +62,13 @@
 
 
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+        <td class="action-links">
+
+
+            <button type="submit" class="btn btn-small btn-success">Save</button>
+            @Html.Raw("|")
+
+            @Html.ActionLink("Back to List", "List", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+        </td>
     </div>
 }
-<div>
-    @Html.ActionLink("Back to List", "List")
-</div>
