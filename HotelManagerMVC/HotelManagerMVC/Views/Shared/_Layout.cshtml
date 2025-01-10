@@ -41,8 +41,8 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Room" asp-action="List">Room</a>
                             </li>
                         }
-                        @if (Context.User?.FindFirst(ClaimTypes.Role)?.Value == Role.Admin.ToString())
-                        {
+                        @if (Context.User?.FindFirst(ClaimTypes.Role)?.Value == Role.Admin.ToString() ||
+Context.User?.FindFirst(ClaimTypes.Role)?.Value == Role.User.ToString())
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="List">Users</a>
                         </li>
