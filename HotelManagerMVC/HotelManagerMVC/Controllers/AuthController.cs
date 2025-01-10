@@ -52,7 +52,9 @@ namespace HotelManagerMVC.Controllers
             var user = await this.usersService.GetByUsernameAsync(username);
             var claims = new[]
             {
-        new Claim(ClaimTypes.Name, user.Username)
+        new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
+
             };
 
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

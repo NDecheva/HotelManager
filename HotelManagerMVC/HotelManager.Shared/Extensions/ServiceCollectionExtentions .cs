@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 
-namespace HotelManager.Shared.Extention
+
+namespace HotelManager.Shared.Extentions
 {
     public static class ServiceCollectionExtentions
     {

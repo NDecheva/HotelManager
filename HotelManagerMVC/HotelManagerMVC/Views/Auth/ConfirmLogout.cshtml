@@ -1,0 +1,16 @@
+﻿@model HotelManagerMVC.ViewModels.LogoutVM
+
+<h1>Logout</h1>
+
+
+@{
+    // Check if user is authenticated
+    if (User.Identity.IsAuthenticated)
+    {
+        <p>Are you sure you want to log out?</p>
+        <form asp-action="Logout" asp-controller="Auth" method="get">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    }
+
+}

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@using HotelManager.Shared.Enum
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,7 +27,28 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        @if (Context.User?.FindFirst(ClaimTypes.Role)?.Value == Role.Admin.ToString())
+                        {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="List">Users</a>
+                        </li>
+                        }
                     </ul>
+
+                    <!-- Login and Register links -->
+                    @if (Context.User.Identity.IsAuthenticated)
+                    {
+                        <div style="margin-right: 30px;">
+                            <a asp-controller="Auth" asp-action="ConfirmLogout" class="nav-link">Logout</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="margin-right: 10px;">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
+                        </div>
+
+                    }
                 </div>
             </div>
         </nav>
@@ -38,7 +61,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - HotelManagerMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - HotelManagerMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -28,7 +28,7 @@ namespace HotelManagerMVC.ViewModels
         [Required]
         [DisplayName("Hire Date")]
         [DataType(DataType.Date)]
-        public DateTime HireDate { get; set; }
+        public DateTime? HireDate { get; set; }
         [Required]
         [DisplayName("Termination Date")]
         [DataType(DataType.Date)]
@@ -38,6 +38,9 @@ namespace HotelManagerMVC.ViewModels
         public bool IsActive { get; set; }
         [Required]
         public Role Role { get; set; }
+
+        [DisplayName("Password")]
+        public string Password { get; set; }
 
         public IEnumerable<SelectListItem> Roles { get; set; }
     }
