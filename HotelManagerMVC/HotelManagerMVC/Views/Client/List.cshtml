@@ -23,7 +23,6 @@
         <th>
             @Html.DisplayNameFor(model => model.IsAdult)
         </th>
-        <th>Actions</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -66,10 +65,9 @@
     }
 </table>
 <td class="action-links">
-    @if (User.IsInRole("Admin"))
-    {
-        <div class="text-left mb-3">
-            <a href="@Url.Action("Create")" class="btn btn-primary">Create New</a>
-        </div>
-    }
+
+    <div class="text-left mb-3">
+        <a href="@Url.Action("Create")" class="btn btn-primary">Create New</a>
+    </div>
+
 </td>

@@ -33,5 +33,7 @@ namespace HotelManagerMVC.ViewModels
 
         public IEnumerable<SelectListItem> RoomTypeList { get; set; }
 
+
+
     }
 }
