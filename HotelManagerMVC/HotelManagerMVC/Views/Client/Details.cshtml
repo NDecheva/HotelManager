@@ -56,8 +56,31 @@
             @Html.DisplayNameFor(model => model.ClientReservations)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ClientReservations)
-        </dd>
+            @if (Model.ClientReservations != null && Model.ClientReservations.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Number of reservation </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var reservation in Model.ClientReservations)
+                        {
+                            <tr>
+
+                                <td>@Html.DisplayFor(modelItem => reservation.Reservation.Id)</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Client has not reservation.</p>
+            }
     </dl>
 </div>
 <br />

@@ -16,7 +16,9 @@
         <h2 class="text-center">Client Reservation</h2>
 
         @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
+
 
             <div class="card">
                 <div class="card-body">
@@ -25,7 +27,7 @@
                     <div class="form-group row">
                         @Html.LabelFor(model => model.ClientId, new { @class = "col-md-2 col-form-label text-md-right" })
                         <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.ClientId, Model.Clients, "Choose a Client...",
+                            @Html.DropDownListFor(model => model.ClientId, Model.ClientList, "Choose a Client...",
                                      new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.ClientId, "", new { @class = "text-danger" })
                         </div>
@@ -34,7 +36,7 @@
                     <div class="form-group row">
                         @Html.LabelFor(model => model.ReservationId, new { @class = "col-md-2 col-form-label text-md-right" })
                         <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.ReservationId, Model.Reservations, "Choose a Reservation...",
+                            @Html.DropDownListFor(model => model.ReservationId, Model.ReservationList, "Choose a Reservation...",
                                      new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.ReservationId, "", new { @class = "text-danger" })
                         </div>
@@ -49,5 +51,6 @@
                 </div>
             </div>
         }
+
     </div>
 </body>

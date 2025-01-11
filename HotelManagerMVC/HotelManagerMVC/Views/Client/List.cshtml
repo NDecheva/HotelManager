@@ -57,8 +57,7 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-secondary" })
                 @Html.Raw("|")
                 @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-info" })
-                @Html.Raw("|")
-                <a href="@Url.Action("ClientReservation", new { id = item.Id })" class="btn btn-sm btn-outline-light">Client Reservation</a>
+
                 @Html.Raw("|")
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
 
@@ -70,6 +69,8 @@
 
     <div class="text-left mb-3">
         <a href="@Url.Action("Create")" class="btn btn-primary">Create New</a>
+        @Html.Raw("|")
+        <a href="@Url.Action("ClientReservation")" class="btn btn-primary">Client Reservation</a>
     </div>
 
 </td>
