@@ -1,55 +1,57 @@
-﻿@model IEnumerable<HotelManagerMVC.ViewModels.ClientDetailsVM>
+﻿@model IEnumerable<HotelManagerMVC.ViewModels.ReservationDetailsVM>
 @{
     ViewBag.Title = "Index";
 }
-<h2>Client</h2>
+<h2>Reservation</h2>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.RoomId)
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.UserId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            @Html.DisplayNameFor(model => model.CheckInDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.CheckOutDate)
         </th>
 
+
         <th>
-            @Html.DisplayNameFor(model => model.IsAdult)
+            @Html.DisplayNameFor(model => model.HasBreakfast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAllInclusive)
         </th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-
-
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(modelItem => item.RoomId)
             </td>
-
-
-
             <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.User.Username)
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                @Html.DisplayFor(modelItem => item.CheckInDate)
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(modelItem => item.CheckOutDate)
             </td>
 
 
             <td>
-                @Html.DisplayFor(modelItem => item.IsAdult)
+                @Html.DisplayFor(modelItem => item.HasBreakfast)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAllInclusive)
             </td>
 
             <td class="action-links">
@@ -64,6 +66,7 @@
         </tr>
     }
 </table>
+
 <td class="action-links">
 
     <div class="text-left mb-3">

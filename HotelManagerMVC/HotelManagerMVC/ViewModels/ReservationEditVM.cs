@@ -7,19 +7,23 @@ namespace HotelManagerMVC.ViewModels
     public class ReservationEditVM : BaseVM
     {
         [Required]
+        [DisplayName("Room")]
         public int RoomId { get; set; }
+
+
         [Required]
+        [DisplayName("User")]
         public int UserId { get; set; }
         [Required]
 
         [DisplayName("Check In Date")]
         [DataType(DataType.Date)]
-        public DateTime CheckInDate { get; set; }
+        public DateTime? CheckInDate { get; set; }
         [Required]
 
         [DisplayName("Check Out Date")]
         [DataType(DataType.Date)]
-        public DateTime CheckOutDate { get; set; }
+        public DateTime? CheckOutDate { get; set; }
         [Required]
         [DisplayName("Has Breakfast")]
         public bool HasBreakfast { get; set; }

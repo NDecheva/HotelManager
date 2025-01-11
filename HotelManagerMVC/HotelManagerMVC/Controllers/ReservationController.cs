@@ -20,11 +20,11 @@ namespace HotelManagerMVC.Controllers
             this._userService = _userService;
             this._roomService = _roomService;
         }
-        protected virtual async Task<ReservationEditVM> PrePopulateVMAsync(ReservationEditVM editVM)
+        protected override async Task<ReservationEditVM> PrePopulateVMAsync(ReservationEditVM editVM)
         {
 
             editVM.Users = (await _userService.GetAllAsync()).Select(x => new SelectListItem($"{x.FirstName} {x.LastName}", x.Id.ToString()));
-            editVM.Rooms = (await _roomService.GetAllAsync()).Select(x => new SelectListItem($"{x.RoomType} - {x.Capacity}", x.Id.ToString()));
+            editVM.Rooms = (await _roomService.GetAllAsync()).Select(x => new SelectListItem($"Room number({x.RoomNumber}) - {x.RoomType}", x.Id.ToString()));
             return editVM;
 
         }

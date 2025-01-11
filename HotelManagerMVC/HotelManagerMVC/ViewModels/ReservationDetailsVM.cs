@@ -10,15 +10,20 @@ namespace HotelManagerMVC.ViewModels
         {
             this.ClientReservations = new List<ClientReservationDetailsVM>();
         }
+        [Required]
+        [DisplayName("Room")]
         public int RoomId { get; set; }
-        public  RoomDetailsVM Room { get; set; }
+        public RoomDetailsVM Room { get; set; }
+        [Required]
+        [DisplayName("Username")]
         public int UserId { get; set; }
-        public  UserDetailsVM User { get; set; }
+        public UserDetailsVM User { get; set; }
 
         [DisplayName("Check In Date")]
         [DataType(DataType.Date)]
         public DateTime CheckInDate { get; set; }
-       [DataType(DataType.Date)]
+
+        [DataType(DataType.Date)]
         [DisplayName("Check Out Date")]
         public DateTime CheckOutDate { get; set; }
 

@@ -1,0 +1,90 @@
+﻿@model HotelManagerMVC.ViewModels.ReservationDetailsVM
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoomId)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckInDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CheckInDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckOutDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CheckOutDate)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasBreakfast)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HasBreakfast)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAllInclusive)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsAllInclusive)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientReservations)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClientReservations)
+        </dd>
+
+    </dl>
+    <br />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                @Html.Raw("|")
+                @Html.ActionLink("Back to List", "List", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+            </div>
+    }
+</div>
