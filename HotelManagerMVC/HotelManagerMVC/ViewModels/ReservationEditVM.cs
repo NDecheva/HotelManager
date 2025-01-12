@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using HotelManager.Data.Entities;
+using HotelManager.Shared.Dtos;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -34,5 +36,15 @@ namespace HotelManagerMVC.ViewModels
         public IEnumerable<SelectListItem> Users { get; set; }
 
         public IEnumerable<SelectListItem> Rooms { get; set; }
+
+        [Required]
+        [DisplayName("Clients")]
+        public List<int> ClientsIds { get; set; }
+
+        public IEnumerable<SelectListItem> Clients { get; set; }
+
+        public ICollection<ClientReservationEditVM> ClientReservations { get; set; }
+
+
     }
 }

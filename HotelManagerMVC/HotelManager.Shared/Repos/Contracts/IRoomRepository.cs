@@ -9,5 +9,8 @@ namespace HotelManager.Shared.Repos.Contracts
 {
     public interface IRoomRepository : IBaseRepository<RoomDto>
     {
+        public Task<IEnumerable<RoomDto>> GetAvailableRoomsAsync();
+        public Task UpdateRoomToNotAvailableAsync(int roomId);
+
     }
 }
