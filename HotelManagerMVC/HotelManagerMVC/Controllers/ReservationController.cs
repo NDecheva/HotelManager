@@ -48,6 +48,30 @@ namespace HotelManagerMVC.Controllers
             return await base.Create(editVM);
         }
 
+        public override async Task<IActionResult> Edit(int id, ReservationEditVM editVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                editVM =  await PrePopulateVMAsync(editVM);
+                // If the model state is not valid, return the view with the current editVM to show validation errors
+                return View(editVM);
+            }
+
+            // Retrieve the existing reservation
+            var existingReservation = await _service.GetByIdIfExistsAsync(id);
+            if (existingReservation == null)
+            {
+                // If the reservation does not exist, return a NotFound result
+                return NotFound();
+            }
+            editVM.ClientReservations = new List<ClientReservationEditVM>();
+            AddClient(editVM);
+
+            await UpdateRoomToNotAvailableAsync(editVM);
+            return await base.Edit(id, editVM);
+        }
+
+
         public void AddClient(ReservationEditVM editVM)
         {
             foreach (var clientId in editVM.ClientsIds)

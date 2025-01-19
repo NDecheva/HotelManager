@@ -33,17 +33,17 @@ namespace HotelManagerMVC.ViewModels
         [DisplayName("Is All Inclusive")]
         public bool IsAllInclusive { get; set; }
 
-        public IEnumerable<SelectListItem> Users { get; set; }
+        public IEnumerable<SelectListItem>? Users { get; set; }
 
-        public IEnumerable<SelectListItem> Rooms { get; set; }
+        public IEnumerable<SelectListItem>? Rooms { get; set; }
 
         [Required]
         [DisplayName("Clients")]
-        public List<int> ClientsIds { get; set; }
+        public List<int>? ClientsIds { get; set; }
 
-        public IEnumerable<SelectListItem> Clients { get; set; }
+        public IEnumerable<SelectListItem>? Clients { get; set; }
 
-        public ICollection<ClientReservationEditVM> ClientReservations { get; set; }
+        public ICollection<ClientReservationEditVM>? ClientReservations { get; set; }
 
 
     }
