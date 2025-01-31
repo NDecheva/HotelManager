@@ -30,7 +30,7 @@ namespace HotelManagerMVC.ViewModels
 
         [DisplayName("All Inclusive Price")]
         public decimal AllInclusivePrice { get; set; }
-
+        [DisplayName ("Reservation")]
         public virtual List<ReservationDetailsVM> Reservations { get; set; }
     }
 }
