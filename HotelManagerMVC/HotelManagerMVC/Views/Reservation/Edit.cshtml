@@ -14,6 +14,8 @@
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.UserId)
+
 
 
         <div class="form-group">
@@ -28,11 +30,16 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UserId, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ClientsIds, new { @class = "col-md-2 col-form-label text-md-right" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.UserId, Model.Users, "Users...",
-                         new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.UserId)
+                @Html.DropDownListFor(
+                         m => m.ClientsIds,
+                         new MultiSelectList(Model.Clients, "Value", "Text", Model.ClientsIds),
+                         new { @class = "form-control multiselect", multiple = "multiple" }
+                         )
+                <small class="form-text text-muted">Hold down <strong>Ctrl</strong> (Windows) or <strong>Cmd</strong> (Mac) to select multiple clients.</small>
+
+                @Html.ValidationMessageFor(model => model.ClientsIds, "", new { @class = "text-danger" })
             </div>
         </div>
         

@@ -15,4 +15,15 @@ public class RoomRepository : BaseRepository<Room, RoomDto>, IRoomRepository
 	{
 
 	}
+    public async Task<IEnumerable<RoomDto>> GetAvailableRoomsAsync()
+	{
+		return MapToEnumerableOfModel(await _dbSet.Where(x => x.IsAvailable).ToListAsync());
+    }
+    
+    public async Task UpdateRoomToNotAvailableAsync(int roomdId)
+    {
+        var room = await GetByIdAsync(roomdId);
+        room.IsAvailable = false;
+        await SaveAsync(room);
+    }
 }

@@ -18,5 +18,19 @@ namespace HotelManager.Services
         {
 
         }
+        public Task<IEnumerable<RoomDto>> GetAvailableRoomsAsync()
+        {
+            return this._repository.GetAvailableRoomsAsync();
+        }
+
+        public async Task UpdateRoomToNotAvailableAsync(int roomId)
+        {
+
+            if (!await ExistsByIdAsync(roomId))
+            {
+                throw new ArgumentException($"Room with ID {roomId} isn't available.");
+            }
+            await _repository.UpdateRoomToNotAvailableAsync(roomId);
+        }
     }
 }

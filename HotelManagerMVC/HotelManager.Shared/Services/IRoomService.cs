@@ -10,6 +10,9 @@ namespace HotelManager.Shared.Services
 {
     public interface IRoomService : IBaseCrudService<RoomDto, IRoomRepository>
     {
+        public Task<IEnumerable<RoomDto>> GetAvailableRoomsAsync();
+
+        public Task UpdateRoomToNotAvailableAsync(int roomId);
 
     }
 }

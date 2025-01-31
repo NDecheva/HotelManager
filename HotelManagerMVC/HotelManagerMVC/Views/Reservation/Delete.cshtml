@@ -67,11 +67,34 @@
             @Html.DisplayFor(model => model.TotalPrice)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ClientReservations)
-        </dt>
         <dd>
-            @Html.DisplayFor(model => model.ClientReservations)
+            @if (Model.ClientReservations != null && Model.ClientReservations.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Number of reservation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var reservation in Model.ClientReservations)
+                        {
+                            if (reservation.Reservation != null)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => reservation.Reservation.Id)</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+
+            else
+            {
+                <p>No reservations.</p>
+            }
+
         </dd>
 
     </dl>
