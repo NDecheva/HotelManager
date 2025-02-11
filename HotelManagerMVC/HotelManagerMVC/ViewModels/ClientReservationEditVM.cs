@@ -12,8 +12,8 @@ namespace HotelManagerMVC.ViewModels
 
         public int ReservationId { get; set; }
 
-        public IEnumerable<SelectListItem> Clients { get; set; }
+        public IEnumerable<SelectListItem> ClientList { get; set; }
 
-        public IEnumerable<SelectListItem> Reservations { get; set; }
+        public IEnumerable<SelectListItem> ReservationList { get; set; }
     }
 }

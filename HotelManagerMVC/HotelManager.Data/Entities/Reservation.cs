@@ -39,7 +39,7 @@ namespace HotelManager.Data.Entities
 
             decimal totalPrice = 0;
 
-            totalPrice += ClientReservations.Sum(cr => cr.Client.IsAdult ? Room.PricePerNightAdult : Room.PricePerNightChild);
+            totalPrice += ClientReservations.Sum(cr => cr.Client!=null?(cr.Client.IsAdult ? Room.PricePerNightAdult : Room.PricePerNightChild):0);
 
             if (HasBreakfast)
             {
